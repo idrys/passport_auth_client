@@ -37,7 +37,11 @@
 </template>
 
 <script>
+import {getHeader} from '../API'
+//import router from './router'
+
     export default {
+        
         data() {
             return {
                 user: {
@@ -48,27 +52,34 @@
         },
         methods: {
             login(user) {
-                
+                const authUser = {}
                 Store.dispatch('login', user)
                     .then(response => {
-                        console.log('Status: ', response)
-                        //console.log('Token: ',  response.data.access_token)
-                        if (response.status === 200 && 'access_token' in response.data) {
-                            //this.$session.start()
-                            //this.$session.set('jwt', response.data.access_token)
-                            //Vue.http.headers.common['Authorization'] = 'Bearer ' + response.data.access_token
-                            //localStorage.setItem('access_token',response.data.access_token)
-                            //localStorage.setItem('refresh_token',response.data.refresh_token)
-                            this.$router.push('/Dashboard')
+                        
+                        if (response.status === 200 ) {
+                            authUser.access_token = response.data.access_token
+                            authUser.refresh_token = response.data.refrash_token
+                            window.localStorage.setItem('authUser', JSON.stringify(authUser))
+                            
+                            axios.get('api/user1', { headers: getHeader() })
+                                .then(function (response) {
+                                    console.log('email', response.data.name);
+                                    authUser.email = response.data.email
+                                    authUser.name = response.data.name
+                                    window.localStorage.setItem('authUser', JSON.stringify(authUser))
+                                    //this.$router.push('/Dashboard')
+                                    this.$router.push('/Dashboard')
+                                }.bind(this))
+                                .catch(function (error) {
+                                    console.log(error);
+                                });
                         }
-                        //console.log('response from success login', response)
-                        //console.log('test');
-                        //console.log(response.data.refresh_token)
-
                     })
                     .catch(response => {
-                        let errorMessage = response.response.data.message
-                        alert(errorMessage)
+                        console.log(response)
+                        //let errorMessage = response.response.data.message
+                        //alert(errorMessage)
+                        alert('t')
                     })
             }
         },

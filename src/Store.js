@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import {clientId, clientSecret} from './env'
+
 Vue.use(Vuex)
 
 const Store = new Vuex.Store({

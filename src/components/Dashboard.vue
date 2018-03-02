@@ -11,9 +11,9 @@ export default {
     return { }
   },
   beforeCreate: function () {
-    if (!this.$session.exists()) {
-      this.$router.push('/')
-    }
+   // if (!this.$session.exists()) {
+     // this.$router.push('/')
+   // }
   },
   methods: {
     logout: function () {
