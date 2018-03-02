@@ -6,7 +6,10 @@ import Index from '@/components/Index'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
 import Dashboard from '@/components/Dashboard'
-
+import 'vuetify/dist/vuetify.min.css' 
+import Vuetify from 'vuetify'
+ 
+Vue.use(Vuetify)
 Vue.use(VueRouter)
 Vue.use(VueResource)
 

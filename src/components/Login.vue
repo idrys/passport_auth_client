@@ -1,39 +1,39 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h1>Login Form</h1>
 
-                <form @submit.prevent="login(user)">
-                    <div class="text-left">
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Your email" v-model="user.email">
-                        </div>
+  <v-app id="inspire">
+    <v-content>
+      <v-container fluid fill-height>
+        <v-layout align-center justify-center>
+          <v-flex xs12 sm8 md4>
+            <v-card class="elevation-12">
+            
+              <v-toolbar dark color="primary">
+                <v-toolbar-title>Logowanie</v-toolbar-title>
+                <v-spacer></v-spacer>
+                <v-tooltip bottom>
+                  
+                </v-tooltip> 
+              </v-toolbar>
+              <v-card-text>
+                
+                <v-form>
+                  <v-text-field prepend-icon="person" name="e-mail" label="E-mail" type="text" v-model="user.email"></v-text-field>
+                  <v-text-field prepend-icon="lock" name="password" label="Hasło" id="password" type="password" v-model="user.password"></v-text-field>
+                </v-form>
+                
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn @click="login(user)" color="primary">Login</v-btn>
+              </v-card-actions>
 
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Your password" v-model="user.password">
-                        </div>
-                    </div>
+            </v-card>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
+  </v-app>
 
-                    <div class="text-center">
-                        <button class="btn btn-primary">Login</button>
-
-                        <br><br>
-
-                        <router-link class="btn btn-default" :to="{ name: 'Index' }">
-                            Index
-                        </router-link>
-
-                        <router-link class="btn btn-default" :to="{ name: 'Register' }">
-                            Register
-                        </router-link>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 </template>
 
 <script>
@@ -103,3 +103,45 @@ a {
   color: #42b983;
 }
 </style>
+
+<!--
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h1>Login Form</h1>
+
+                <form @submit.prevent="login(user)">
+                    <div class="text-left">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Your email" v-model="user.email">
+                            <v-text-field prepend-icon="person" name="login" label="Login" type="text" v-model="user.email"></v-text-field>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Your password" v-model="user.password">
+                            <v-text-field prepend-icon="lock" name="password" label="Password" id="password" type="password" v-model="user.password"></v-text-field>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-primary">Login</button>
+
+                        <br><br>
+
+                        <router-link class="btn btn-default" :to="{ name: 'Index' }">
+                            Index
+                        </router-link>
+
+                        <router-link class="btn btn-default" :to="{ name: 'Register' }">
+                            Register
+                        </router-link>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    -->

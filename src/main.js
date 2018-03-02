@@ -7,6 +7,10 @@ import axios from 'axios'
 import API  from './API'
 import Store from './Store'
 import {apiDomain} from './API'
+//import Vue from 'vue'
+import Vuetify from 'vuetify'
+ 
+//Vue.use(Vuetify)
 axios.defaults.baseURL = apiDomain //'http://127.0.0.1:8001';
 
 window.axios = axios
